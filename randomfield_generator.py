@@ -18,7 +18,7 @@ def any_valued_generator(a):
         for i in np.arange(a):
             f.write(str(random.uniform(-4,4))+'\n')
 
-
-#low_field_generator(1E3)
-#high_field_generator(1E3) #positive only
-any_valued_generator(1E7)
+#low_field_generator(3E3)
+#high_field_generator(1E5) #positive only
+any_valued_generator(3E3)
+print("Random fields generated")

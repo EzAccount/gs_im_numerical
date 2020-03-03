@@ -6,7 +6,7 @@ class Graph:
     def __init__(self, graph):
         self.graph = graph
         self.org_graph = [i[:] for i in graph]
-        self. ROW = len(graph)
+        self. ROW   = len(graph)
         self.COL = len(graph[0])
 
     def BFS(self,s, t, parent):
@@ -32,7 +32,8 @@ class Graph:
             path_flow = float("Inf")
             s = sink
             while(s !=  source):
-                path_flow = min (path_flow, self.graph[parent[s]][s])
+                path_flow = min (path_flow,
+                                 self.graph[parent[s]][s])
                 s = parent[s]
             max_flow +=  path_flow
             v = sink
@@ -64,14 +65,15 @@ g = Graph(graph)
 graphed = time.time()
 
 size=len(graph)
-E = sum(sum(graph[i][-size+i:]) for i in range(size)) + sum(graph[i][1] for i in range(size))
+E = sum(sum(graph[i][-size+i:]) for i in range(size))\
+    + sum(graph[i][1] for i in range(size))
 source = 0; sink =  1
 
 
 g.minCut(source, sink)
 done = time.time()
 with open("time.txt", "a") as f:
-    f.write("Small fields, 1E3:\n")
+    f.write("Small fields, 3E3:\n")
     f.write("Max Flow - Min Cut algorithm:\n")
     f.write("File processing: "+str(read-start)+str('\n'))
     f.write("Graph constructing: "+str(graphed-read)+str('\n'))
